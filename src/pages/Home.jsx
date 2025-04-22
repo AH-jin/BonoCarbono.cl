@@ -1,5 +1,6 @@
 
 import './Home.css';
+import CarbonTables from '../components/CarbonTables';
 
 const Home = () => {
   return (
@@ -115,7 +116,8 @@ const Home = () => {
         </div>
       </section>
 
-
+      {/* Carbon Tables Section */}
+      <CarbonTables />
     </div>
   );
 };
