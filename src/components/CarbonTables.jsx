@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import CarbonCharts from './CarbonCharts';
 import './CarbonTables.css';
 
 const CarbonTables = () => {
@@ -175,6 +176,8 @@ const CarbonTables = () => {
         </div>
         
         {renderTable(tablesData[activeTab])}
+        
+        <CarbonCharts activeTab={activeTab} tablesData={tablesData} />
       </div>
     </section>
   );
