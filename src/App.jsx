@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Navbar from './components/Navbar'
-import Footer from './components/Footer'
 import Home from './pages/Home'
+import SimpleFooter from './components/SimpleFooter'
 import './App.css'
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <main className="main-content">
         <Home />
       </main>
-      <Footer />
+      <SimpleFooter />
     </div>
   )
 }

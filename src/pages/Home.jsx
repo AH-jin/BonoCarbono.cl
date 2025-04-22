@@ -115,18 +115,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="cta-section">
-        <div className="container">
-          <div className="cta-content">
-            <h2 className="cta-title">¿Listo para comenzar?</h2>
-            <p className="cta-description">
-              Contáctanos hoy mismo para obtener más información sobre cómo puedes invertir en bonos de carbono o certificar tu proyecto.
-            </p>
-            <a href="#" className="btn cta-button">Contactar ahora</a>
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 };
