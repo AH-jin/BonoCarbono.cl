@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -12,9 +11,9 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="container navbar-container">
-        <Link to="/" className="navbar-logo">
+        <div className="navbar-logo">
           <span className="logo-text">BonoCarbono.cl</span>
-        </Link>
+        </div>
 
         <div className="menu-icon" onClick={toggleMenu}>
           <div className={`menu-icon__bar ${isMenuOpen ? 'open' : ''}`}></div>
@@ -24,24 +23,9 @@ const Navbar = () => {
 
         <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           <li className="navbar-item">
-            <Link to="/" className="navbar-link" onClick={() => setIsMenuOpen(false)}>
+            <a href="#" className="navbar-link" onClick={() => setIsMenuOpen(false)}>
               Inicio
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link to="/about" className="navbar-link" onClick={() => setIsMenuOpen(false)}>
-              ¿Qué son?
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link to="/services" className="navbar-link" onClick={() => setIsMenuOpen(false)}>
-              Servicios
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link to="/contact" className="navbar-link" onClick={() => setIsMenuOpen(false)}>
-              Contacto
-            </Link>
+            </a>
           </li>
         </ul>
       </div>

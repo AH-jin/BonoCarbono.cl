@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+
 import './Home.css';
 
 const Home = () => {
@@ -15,8 +15,8 @@ const Home = () => {
               y cómo puedes ser parte de esta revolución verde.
             </p>
             <div className="hero-buttons">
-              <Link to="/about" className="btn">Conocer más</Link>
-              <Link to="/contact" className="btn btn-outline">Contactar</Link>
+              <a href="#" className="btn">Conocer más</a>
+              <a href="#" className="btn btn-outline">Contactar</a>
             </div>
           </div>
           <div className="hero-image">
@@ -123,7 +123,7 @@ const Home = () => {
             <p className="cta-description">
               Contáctanos hoy mismo para obtener más información sobre cómo puedes invertir en bonos de carbono o certificar tu proyecto.
             </p>
-            <Link to="/contact" className="btn cta-button">Contactar ahora</Link>
+            <a href="#" className="btn cta-button">Contactar ahora</a>
           </div>
         </div>
       </section>
