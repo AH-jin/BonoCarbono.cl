@@ -87,6 +87,19 @@
 }
 
 @media (max-width: 768px) {
+  .carbon-tables-section {
+    padding: 2rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
   .tabs {
     flex-direction: column;
     align-items: center;
@@ -102,5 +115,44 @@
   .carbon-table td {
     padding: 0.5rem;
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .carbon-tables-section {
+    padding: 1.5rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tab-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    max-width: 250px;
+  }
+  
+  .carbon-table-container h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .carbon-table th,
+  .carbon-table td {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+  
+  /* Mejora la visualización en pantallas muy pequeñas */
+  .table-responsive {
+    margin: 0 -15px;
+    padding: 0 15px;
+    width: calc(100% + 30px);
   }
 }

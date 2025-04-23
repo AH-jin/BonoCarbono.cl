@@ -35,3 +35,36 @@
     margin-bottom: 1.5rem;
   }
 }
+
+@media (max-width: 768px) {
+  .carbon-charts {
+    margin-top: 2rem;
+    padding: 1.2rem;
+  }
+  
+  .charts-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .chart-item {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .carbon-charts {
+    margin-top: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .charts-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .chart-item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+}
