@@ -377,11 +377,11 @@ const CarbonTables = () => {
             </div>
             
             <div className="line-chart-section">
-              <h2 className="line-chart-title">Tendencia de Valores Mensuales</h2>
+              <h2 className="line-chart-title">Comparativa Mensual de Emisiones</h2>
               <div className="line-chart-content">
                 <div className="line-chart-header">
-                  <h3 className="line-chart-subtitle">Gráfico de línea</h3>
-                  <p className="line-chart-description">Este gráfico muestra la tendencia de valores mensuales a lo largo del año. Está implementado con restricciones para evitar desbordamientos y daños a la página.</p>
+                  <h3 className="line-chart-subtitle">Tractor vs Dron (kg CO₂/ha)</h3>
+                  <p className="line-chart-description">Este gráfico muestra la comparación mensual de emisiones de CO₂ por hectárea entre el uso de tractores convencionales y drones. Se observa claramente la significativa reducción de emisiones al utilizar tecnología de drones.</p>
                 </div>
                 <div className="line-chart-wrapper-container">
                   <LineChart />

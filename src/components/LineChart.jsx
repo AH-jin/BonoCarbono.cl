@@ -11,6 +11,7 @@ import {
   Filler
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import './LineChart.css';
 
 // Registrar los componentes necesarios de Chart.js
@@ -22,24 +23,27 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
+  ChartDataLabels
 );
 
 const LineChart = ({ data = [] }) => {
-  // Datos exactos del gráfico mostrado en la imagen
+  // Datos comparativos de emisiones de CO2 por hectárea (kg CO2/ha) para cada mes
+  // Basado en los valores de la página: tractor (18.5 kg CO2/ha) vs dron (1.07 kg CO2/ha)
   const defaultData = [
-    { month: 'Enero', value: 35000 },
-    { month: 'Febrero', value: 50000 },
-    { month: 'Marzo', value: 20000 },
-    { month: 'Abril', value: 10000 },
-    { month: 'Mayo', value: 15000 },
-    { month: 'Junio', value: 25000 },
-    { month: 'Julio', value: 15000 },
-    { month: 'Agosto', value: 10000 },
-    { month: 'Septiembre', value: 35000 },
-    { month: 'Octubre', value: 45000 },
-    { month: 'Noviembre', value: 40000 },
-    { month: 'Diciembre', value: 50000 }
+    // Valores mensuales que reflejan variaciones estacionales pero mantienen la proporción
+    { month: 'Enero', tractor: 16.5, dron: 0.95 },
+    { month: 'Febrero', tractor: 17.2, dron: 0.99 },
+    { month: 'Marzo', tractor: 18.0, dron: 1.04 },
+    { month: 'Abril', tractor: 19.5, dron: 1.12 },
+    { month: 'Mayo', tractor: 20.8, dron: 1.20 },
+    { month: 'Junio', tractor: 21.5, dron: 1.25 },
+    { month: 'Julio', tractor: 20.0, dron: 1.15 },
+    { month: 'Agosto', tractor: 18.7, dron: 1.08 },
+    { month: 'Septiembre', tractor: 17.5, dron: 1.01 },
+    { month: 'Octubre', tractor: 16.8, dron: 0.97 },
+    { month: 'Noviembre', tractor: 17.0, dron: 0.98 },
+    { month: 'Diciembre', tractor: 16.2, dron: 0.94 }
   ];
 
   // Usar los datos proporcionados o los datos por defecto
@@ -50,19 +54,35 @@ const LineChart = ({ data = [] }) => {
     labels: chartData.map(item => item.month),
     datasets: [
       {
-        label: 'Valores mensuales',
-        data: chartData.map(item => item.value),
-        backgroundColor: 'rgba(46, 125, 50, 0.1)',
-        borderColor: 'rgba(46, 125, 50, 1)',
-        borderWidth: 2,
-        pointBackgroundColor: 'rgba(46, 125, 50, 1)',
+        label: 'Emisiones con Tractor (kg CO₂/ha)',
+        data: chartData.map(item => item.tractor),
+        backgroundColor: 'rgba(229, 57, 53, 0.15)',
+        borderColor: 'rgba(229, 57, 53, 1)',
+        borderWidth: 3,
+        pointBackgroundColor: 'rgba(229, 57, 53, 1)',
         pointBorderColor: '#fff',
         pointBorderWidth: 2,
-        pointRadius: 4,
-        pointHoverRadius: 6,
+        pointRadius: 6,
+        pointHoverRadius: 8,
         tension: 0.4,
         fill: true,
         // Restricciones para evitar desbordamiento
+        spanGaps: true,
+        clip: {left: 5, top: 0, right: 5, bottom: 0},
+      },
+      {
+        label: 'Emisiones con Dron (kg CO₂/ha)',
+        data: chartData.map(item => item.dron),
+        backgroundColor: 'rgba(46, 125, 50, 0.15)',
+        borderColor: 'rgba(46, 125, 50, 1)',
+        borderWidth: 3,
+        pointBackgroundColor: 'rgba(46, 125, 50, 1)',
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2,
+        pointRadius: 6,
+        pointHoverRadius: 8,
+        tension: 0.4,
+        fill: true,
         spanGaps: true,
         clip: {left: 5, top: 0, right: 5, bottom: 0},
       }
@@ -75,16 +95,16 @@ const LineChart = ({ data = [] }) => {
     maintainAspectRatio: false,
     layout: {
       padding: {
-        top: 20,
-        right: 0,
-        bottom: 0,
-        left: 0
+        top: 30,
+        right: 20,
+        bottom: 10,
+        left: 10
       }
     },
     scales: {
       y: {
         beginAtZero: true,
-        max: 50000,
+        max: 25,
         grid: {
           color: 'rgba(0, 0, 0, 0.05)',
           borderDash: [5, 5],
@@ -94,15 +114,26 @@ const LineChart = ({ data = [] }) => {
         },
         ticks: {
           font: {
-            size: 11
+            size: 13,
+            weight: '500'
           },
           color: '#666',
           padding: 5,
-          stepSize: 15000,
+          stepSize: 5,
           callback: function(value) {
-            if (value === 0) return '0 €';
-            return value.toLocaleString() + ' €';
+            if (value === 0) return '0 kg CO₂/ha';
+            return value.toLocaleString('es-CL') + ' kg CO₂/ha';
           }
+        },
+        title: {
+          display: true,
+          text: 'kg CO₂/ha',
+          font: {
+            size: 14,
+            weight: 'bold'
+          },
+          color: '#333',
+          padding: {top: 0, bottom: 10}
         }
       },
       x: {
@@ -114,7 +145,8 @@ const LineChart = ({ data = [] }) => {
         },
         ticks: {
           font: {
-            size: 11
+            size: 13,
+            weight: '500'
           },
           color: '#666',
           padding: 5
@@ -123,72 +155,85 @@ const LineChart = ({ data = [] }) => {
     },
     plugins: {
       legend: {
-        display: false,
+        display: true,
+        position: 'top',
+        align: 'center',
+        labels: {
+          boxWidth: 15,
+          boxHeight: 15,
+          font: {
+            size: 14,
+            weight: '600'
+          },
+          padding: 20,
+          usePointStyle: true,
+          pointStyleWidth: 12
+        },
       },
       title: {
         display: true,
-        text: 'Gráfico de línea',
+        text: 'Comparativa de Emisiones',
         font: {
-          size: 16,
+          size: 18,
           weight: 'bold'
         },
-        padding: 5,
+        padding: 10,
         color: '#333'
       },
       tooltip: {
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-        titleFont: { size: 14, weight: 'bold' },
-        bodyFont: { size: 13 },
-        bodySpacing: 5,
-        padding: 8,
+        backgroundColor: 'rgba(0, 0, 0, 0.85)',
+        titleFont: { size: 15, weight: 'bold' },
+        bodyFont: { size: 14 },
+        bodySpacing: 6,
+        padding: 10,
         borderColor: 'rgba(255, 255, 255, 0.2)',
         borderWidth: 1,
         cornerRadius: 6,
         usePointStyle: true,
         callbacks: {
           label: function(context) {
-            return `${context.raw.toLocaleString()} €`;
+            return `${context.raw.toLocaleString('es-CL')} kg CO₂/ha`;
           }
         }
       },
       datalabels: {
-        display: true,
-        align: 'top',
+        display: function(context) {
+          // Mostrar solo algunos puntos para evitar superposición
+          return context.dataIndex % 2 === 0;
+        },
+        align: function(context) {
+          // Alternar posición para evitar superposición
+          return context.datasetIndex === 0 ? 'top' : 'bottom';
+        },
         anchor: 'end',
-        color: '#333',
+        offset: function(context) {
+          // Más espacio para las etiquetas del tractor (arriba)
+          return context.datasetIndex === 0 ? 10 : -10;
+        },
+        backgroundColor: function(context) {
+          return context.dataset.borderColor;
+        },
+        borderRadius: 4,
+        color: 'white',
         font: {
           weight: 'bold',
           size: 11
         },
-        padding: 0,
-        formatter: (value) => value.toLocaleString()
+        formatter: function(value) {
+          return value.toLocaleString('es-CL');
+        },
+        padding: 4
       }
     }
   };
 
-  // Renderizar el gráfico con etiquetas de valores
-  const renderLabels = () => {
-    return (
-      <div className="line-chart-labels">
-        {chartData.map((item, index) => (
-          <div 
-            key={index} 
-            className="line-chart-label"
-            style={{
-              left: `${(index / (chartData.length - 1)) * 100}%`,
-              top: `${100 - ((item.value - 5000) / 45000) * 100}%`
-            }}
-          >
-            {item.value.toLocaleString()}
-          </div>
-        ))}
-      </div>
-    );
-  };
-
   return (
     <div className="chart-wrapper">
-      <Line data={lineData} options={options} />
+      <Line 
+        data={lineData} 
+        options={options} 
+        height={300}
+      />
     </div>
   );
 };
