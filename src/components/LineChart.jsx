@@ -28,6 +28,24 @@ ChartJS.register(
 );
 
 const LineChart = ({ data = [] }) => {
+  // Hook para detectar el ancho de la ventana
+  const [windowWidth, setWindowWidth] = React.useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1200
+  );
+  
+  // Efecto para actualizar el ancho de la ventana cuando cambia
+  React.useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  // Determinar si estamos en un dispositivo móvil
+  const isMobile = windowWidth < 768;
+  const isSmallMobile = windowWidth < 576;
   // Datos comparativos de emisiones de CO2 por hectárea (kg CO2/ha) para cada mes
   // Basado en los valores de la página: tractor (18.5 kg CO2/ha) vs dron (1.07 kg CO2/ha)
   const defaultData = [
@@ -58,12 +76,12 @@ const LineChart = ({ data = [] }) => {
         data: chartData.map(item => item.tractor),
         backgroundColor: 'rgba(229, 57, 53, 0.15)',
         borderColor: 'rgba(229, 57, 53, 1)',
-        borderWidth: 3,
+        borderWidth: isMobile ? 2 : 3,
         pointBackgroundColor: 'rgba(229, 57, 53, 1)',
         pointBorderColor: '#fff',
         pointBorderWidth: 2,
-        pointRadius: 6,
-        pointHoverRadius: 8,
+        pointRadius: isMobile ? 4 : 6,
+        pointHoverRadius: isMobile ? 6 : 8,
         tension: 0.4,
         fill: true,
         // Restricciones para evitar desbordamiento
@@ -75,12 +93,12 @@ const LineChart = ({ data = [] }) => {
         data: chartData.map(item => item.dron),
         backgroundColor: 'rgba(46, 125, 50, 0.15)',
         borderColor: 'rgba(46, 125, 50, 1)',
-        borderWidth: 3,
+        borderWidth: isMobile ? 2 : 3,
         pointBackgroundColor: 'rgba(46, 125, 50, 1)',
         pointBorderColor: '#fff',
         pointBorderWidth: 2,
-        pointRadius: 6,
-        pointHoverRadius: 8,
+        pointRadius: isMobile ? 4 : 6,
+        pointHoverRadius: isMobile ? 6 : 8,
         tension: 0.4,
         fill: true,
         spanGaps: true,
@@ -95,10 +113,10 @@ const LineChart = ({ data = [] }) => {
     maintainAspectRatio: false,
     layout: {
       padding: {
-        top: 30,
+        top: isMobile ? 20 : 30,
         right: 20,
         bottom: 10,
-        left: 10
+        left: isMobile ? 5 : 10
       }
     },
     scales: {
@@ -114,7 +132,7 @@ const LineChart = ({ data = [] }) => {
         },
         ticks: {
           font: {
-            size: 13,
+            size: isMobile ? 11 : 13,
             weight: '500'
           },
           color: '#666',
@@ -126,10 +144,10 @@ const LineChart = ({ data = [] }) => {
           }
         },
         title: {
-          display: true,
+          display: !isSmallMobile,
           text: 'kg CO₂/ha',
           font: {
-            size: 14,
+            size: isMobile ? 12 : 14,
             weight: 'bold'
           },
           color: '#333',
@@ -145,7 +163,7 @@ const LineChart = ({ data = [] }) => {
         },
         ticks: {
           font: {
-            size: 13,
+            size: isMobile ? 11 : 13,
             weight: '500'
           },
           color: '#666',
@@ -159,22 +177,22 @@ const LineChart = ({ data = [] }) => {
         position: 'top',
         align: 'center',
         labels: {
-          boxWidth: 15,
-          boxHeight: 15,
+          boxWidth: isMobile ? 12 : 15,
+          boxHeight: isMobile ? 12 : 15,
           font: {
-            size: 14,
+            size: isMobile ? 12 : 14,
             weight: '600'
           },
-          padding: 20,
+          padding: isMobile ? 15 : 20,
           usePointStyle: true,
-          pointStyleWidth: 12
+          pointStyleWidth: isMobile ? 10 : 12
         },
       },
       title: {
         display: true,
         text: 'Comparativa de Emisiones',
         font: {
-          size: 18,
+          size: isMobile ? 16 : 18,
           weight: 'bold'
         },
         padding: 10,
@@ -182,8 +200,8 @@ const LineChart = ({ data = [] }) => {
       },
       tooltip: {
         backgroundColor: 'rgba(0, 0, 0, 0.85)',
-        titleFont: { size: 15, weight: 'bold' },
-        bodyFont: { size: 14 },
+        titleFont: { size: isMobile ? 13 : 15, weight: 'bold' },
+        bodyFont: { size: isMobile ? 12 : 14 },
         bodySpacing: 6,
         padding: 10,
         borderColor: 'rgba(255, 255, 255, 0.2)',
@@ -199,6 +217,11 @@ const LineChart = ({ data = [] }) => {
       datalabels: {
         display: function(context) {
           // Mostrar solo algunos puntos para evitar superposición
+          // En móviles pequeños, mostrar menos etiquetas
+          if (isSmallMobile) {
+            return context.dataIndex % 3 === 0;
+          }
+          // En otros dispositivos, mostrar etiquetas alternadas
           return context.dataIndex % 2 === 0;
         },
         align: function(context) {
@@ -217,12 +240,12 @@ const LineChart = ({ data = [] }) => {
         color: 'white',
         font: {
           weight: 'bold',
-          size: 11
+          size: isSmallMobile ? 9 : (isMobile ? 10 : 11)
         },
         formatter: function(value) {
           return value.toLocaleString('es-CL');
         },
-        padding: 4
+        padding: isSmallMobile ? 3 : 4
       }
     }
   };
@@ -232,7 +255,7 @@ const LineChart = ({ data = [] }) => {
       <Line 
         data={lineData} 
         options={options} 
-        height={300}
+        height={isSmallMobile ? 250 : (isMobile ? 280 : 300)}
       />
     </div>
   );
