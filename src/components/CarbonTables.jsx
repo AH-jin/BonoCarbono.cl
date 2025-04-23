@@ -1,5 +1,15 @@
 import { useState, useEffect } from 'react';
 import CarbonCharts from './CarbonCharts';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faIndustry, 
+  faTruck, 
+  faSeedling, 
+  faCity, 
+  faUsers, 
+  faBolt, 
+  faWater 
+} from '@fortawesome/free-solid-svg-icons';
 import './CarbonTables.css';
 import './CardStyle.css';
 
@@ -14,13 +24,13 @@ const CarbonTables = () => {
   // Generar datos al cargar el componente
   useEffect(() => {
     const categories = [
-      { id: 'industrias', name: 'industrias' },
-      { id: 'transportes', name: 'transportes' },
-      { id: 'agricultura', name: 'agricultura' },
-      { id: 'ciudades', name: 'ciudades' },
-      { id: 'personas', name: 'personas' },
-      { id: 'energias', name: 'energías' },
-      { id: 'huellaHidrica', name: 'huella hídrica' }
+      { id: 'industrias', name: 'industrias', icon: faIndustry },
+      { id: 'transportes', name: 'transportes', icon: faTruck },
+      { id: 'agricultura', name: 'agricultura', icon: faSeedling },
+      { id: 'ciudades', name: 'ciudades', icon: faCity },
+      { id: 'personas', name: 'personas', icon: faUsers },
+      { id: 'energias', name: 'energías', icon: faBolt },
+      { id: 'huellaHidrica', name: 'huella hídrica', icon: faWater }
     ];
     
     const generatedData = categories.map(category => ({
@@ -133,6 +143,7 @@ const CarbonTables = () => {
             data-aos-delay={cardData.findIndex(d => d.id === item.id) * 100}
           >
             <div className="card-header">
+              <FontAwesomeIcon icon={item.icon} className="card-icon" />
               {item.name}
             </div>
             <div className="card-body">
