@@ -159,6 +159,16 @@
   color: var(--primary-color);
 }
 
+/* Chart Container */
+.chart-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  background-color: var(--light-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
 /* Responsive */
 @media (max-width: 992px) {
   .hero {

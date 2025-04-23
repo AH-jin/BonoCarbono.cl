@@ -1,12 +1,15 @@
 
 import './Home.css';
 import CarbonTables from '../components/CarbonTables';
+import LineChart from '../components/LineChart';
 
 const Home = () => {
   return (
     <div className="home-page">
       {/* Carbon Tables Section */}
       <CarbonTables />
+
+
 
       {/* Features Section */}
       <section className="section bg-light">
@@ -47,6 +50,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+
 
       {/* How It Works Section */}
       <section className="section">

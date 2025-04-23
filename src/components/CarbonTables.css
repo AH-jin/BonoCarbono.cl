@@ -292,6 +292,63 @@
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.line-chart-section {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.line-chart-content {
+  padding: 0 1rem 1rem;
+  background-color: white;
+}
+
+.line-chart-title {
+  text-align: center;
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.line-chart-header {
+  background-color: white;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.line-chart-subtitle {
+  color: #2e7d32;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.line-chart-description {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.line-chart-wrapper-container {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 0.8rem;
+  height: 250px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+  margin-top: 0.5rem;
 }
 
 .chart-column {
@@ -353,25 +410,29 @@
   background-color: #2e7d32;
   color: white;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
 }
 
 .reduction-value {
-  font-size: 1.4rem;
+  font-size: 2rem;
   font-weight: bold;
   line-height: 1;
+  margin-bottom: 5px;
 }
 
 .reduction-label {
-  font-size: 0.6rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.05rem;
+  line-height: 1;
+  margin-top: 3px;
 }
 
 .comparison-arrow {
@@ -419,6 +480,8 @@
   background-color: rgba(67, 160, 71, 0.1);
   color: #2e7d32;
 }
+
+
 
 /* Mejoras para dispositivos móviles */
 @media (max-width: 768px) {

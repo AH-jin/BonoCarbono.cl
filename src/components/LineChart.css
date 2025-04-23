@@ -1,0 +1,138 @@
+.line-chart-container {
+  background-color: white;
+  padding: 1.8rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(46, 125, 50, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.line-chart-container:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.chart-title-container {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.chart-title {
+  color: #2e7d32;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.chart-description {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.line-chart-wrapper {
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 400px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.line-chart-wrapper canvas {
+  max-width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+  object-position: center;
+}
+
+.line-chart-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.line-chart-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2e7d32;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2px 6px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los ejes y etiquetas */
+.line-chart-wrapper .chartjs-axis-line {
+  stroke: #ddd;
+}
+
+.line-chart-wrapper .chartjs-grid-line {
+  stroke: #eee;
+  stroke-dasharray: 5, 5;
+}
+
+/* Media queries para asegurar responsividad */
+@media (max-width: 992px) {
+  .chart-title {
+    font-size: 1.5rem;
+  }
+  
+  .chart-description {
+    font-size: 0.9rem;
+  }
+  
+  .line-chart-wrapper {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .line-chart-container {
+    padding: 1.2rem;
+  }
+  
+  .chart-title {
+    font-size: 1.3rem;
+  }
+  
+  .line-chart-wrapper {
+    height: 300px;
+    padding: 0.8rem;
+  }
+  
+  .line-chart-label {
+    font-size: 0.75rem;
+    padding: 1px 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .line-chart-container {
+    padding: 1rem;
+  }
+  
+  .chart-title {
+    font-size: 1.2rem;
+  }
+  
+  .chart-description {
+    font-size: 0.8rem;
+  }
+  
+  .line-chart-wrapper {
+    height: 250px;
+    padding: 0.5rem;
+  }
+}

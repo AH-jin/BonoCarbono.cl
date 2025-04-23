@@ -10,6 +10,7 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import LineChart from './LineChart';
 import './CarbonTables.css';
 
 ChartJS.register(
@@ -371,6 +372,19 @@ const CarbonTables = () => {
                       <div className="arrow-label dron">40 L/ha</div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="line-chart-section">
+              <h2 className="line-chart-title">Tendencia de Valores Mensuales</h2>
+              <div className="line-chart-content">
+                <div className="line-chart-header">
+                  <h3 className="line-chart-subtitle">Gráfico de línea</h3>
+                  <p className="line-chart-description">Este gráfico muestra la tendencia de valores mensuales a lo largo del año. Está implementado con restricciones para evitar desbordamientos y daños a la página.</p>
+                </div>
+                <div className="line-chart-wrapper-container">
+                  <LineChart />
                 </div>
               </div>
             </div>
