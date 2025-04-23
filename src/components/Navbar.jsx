@@ -22,11 +22,7 @@ const Navbar = () => {
         </div>
 
         <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
-          <li className="navbar-item">
-            <a href="#" className="navbar-link" onClick={() => setIsMenuOpen(false)}>
-              Inicio
-            </a>
-          </li>
+          {/* Menú vacío, se ha eliminado el botón de inicio */}
         </ul>
       </div>
     </nav>
