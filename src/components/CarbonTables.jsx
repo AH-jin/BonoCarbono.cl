@@ -1,14 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import CarbonCharts from './CarbonCharts';
 import './CarbonTables.css';
 import './CardStyle.css';
 
 const CarbonTables = () => {
-  const [activeTab, setActiveTab] = useState('industrias');
+  const [cardData, setCardData] = useState([]);
 
   // Función para generar un número aleatorio entre min y max
   const getRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
+  
+  // Generar datos al cargar el componente
+  useEffect(() => {
+    const categories = [
+      { id: 'industrias', name: 'industrias' },
+      { id: 'transportes', name: 'transportes' },
+      { id: 'agricultura', name: 'agricultura' },
+      { id: 'ciudades', name: 'ciudades' },
+      { id: 'personas', name: 'personas' },
+      { id: 'energias', name: 'energías' },
+      { id: 'huellaHidrica', name: 'huella hídrica' }
+    ];
+    
+    const generatedData = categories.map(category => ({
+      ...category,
+      value: getRandomNumber(100, 500)
+    }));
+    
+    setCardData(generatedData);
+  }, []);
 
   const tablesData = {
     industrias: {
@@ -97,31 +118,19 @@ const CarbonTables = () => {
     }
   };
 
-  const handleTabChange = (tab) => {
-    setActiveTab(tab);
-  };
+
 
   const renderCards = () => {
-    const categories = [
-      { id: 'industrias', name: 'industrias' },
-      { id: 'transportes', name: 'transportes' },
-      { id: 'agricultura', name: 'agricultura' },
-      { id: 'ciudades', name: 'ciudades' },
-      { id: 'personas', name: 'personas' },
-      { id: 'energias', name: 'energías' },
-      { id: 'huellaHidrica', name: 'huella hídrica' }
-    ];
-    
     return (
       <div className="cards-container">
-        {categories.map(category => (
-          <div key={category.id} className="card-item">
+        {cardData.map(item => (
+          <div key={item.id} className="card-item">
             <div className="card-header">
-              {category.name}
+              {item.name}
             </div>
             <div className="card-body">
               <div className="card-value">
-                {getRandomNumber(100, 500)}
+                {item.value}
               </div>
             </div>
           </div>
@@ -134,6 +143,13 @@ const CarbonTables = () => {
     <section className="carbon-tables-section">
       <div className="container">
         {renderCards()}
+        
+        {cardData.length > 0 && (
+          <div className="charts-section">
+            <h2 className="charts-title">Gráficos de Datos</h2>
+            <CarbonCharts data={cardData} />
+          </div>
+        )}
       </div>
     </section>
   );
