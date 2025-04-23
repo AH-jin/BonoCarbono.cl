@@ -124,7 +124,14 @@ const CarbonTables = () => {
     return (
       <div className="cards-container">
         {cardData.map(item => (
-          <div key={item.id} className="card-item">
+          <div 
+            key={item.id} 
+            className="card-item" 
+            data-category={item.id}
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay={cardData.findIndex(d => d.id === item.id) * 100}
+          >
             <div className="card-header">
               {item.name}
             </div>
