@@ -66,14 +66,78 @@
 }
 
 .card-item {
-  border: 2px solid #2e7d32;
-  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
   overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   position: relative;
+  background-color: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+/* Elementos decorativos de fondo para bonos de carbono */
+.carbon-background-element {
+  position: absolute;
+  opacity: 0.15;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.tree-element {
+  width: 150px;
+  height: 200px;
+  background-image: url("data:image/svg+xml,%3Csvg width='150' height='200' viewBox='0 0 150 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M75 180 L75 200 L85 200 L85 180 Z' fill='%232e7d32'/%3E%3Cpath d='M75 180 L50 130 L100 130 Z' fill='%234caf50'/%3E%3Cpath d='M75 140 L40 90 L110 90 Z' fill='%234caf50'/%3E%3Cpath d='M75 100 L50 50 L100 50 Z' fill='%234caf50'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  top: -20px;
+  left: -20px;
+  transform: rotate(-5deg);
+}
+
+.molecule-element {
+  width: 120px;
+  height: 80px;
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='80' viewBox='0 0 120 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='60' cy='40' r='15' fill='%23333'/%3E%3Ccircle cx='30' cy='40' r='10' fill='%23f44336'/%3E%3Ccircle cx='90' cy='40' r='10' fill='%23f44336'/%3E%3Cpath d='M45 40 L75 40' stroke='%23333' stroke-width='4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+}
+
+.recycle-element {
+  width: 100px;
+  height: 100px;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 20 L65 45 L35 45 Z' fill='none' stroke='%232e7d32' stroke-width='3'/%3E%3Cpath d='M35 30 L20 55 L50 55 Z' fill='none' stroke='%232e7d32' stroke-width='3' transform='rotate(120, 50, 50)'/%3E%3Cpath d='M65 30 L50 55 L80 55 Z' fill='none' stroke='%232e7d32' stroke-width='3' transform='rotate(240, 50, 50)'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* Animaciones y efectos dinámicos */
@@ -93,8 +157,9 @@
 }
 
 .card-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 .card-pulse {
@@ -117,14 +182,125 @@
   gap: 8px;
 }
 
+/* Animaciones base para todos los iconos */
 .card-icon {
   font-size: 1.2rem;
   margin-right: 5px;
-  transition: transform 0.3s ease;
+  transition: all 0.5s ease;
 }
 
-.card-item:hover .card-icon {
-  transform: rotate(10deg) scale(1.2);
+/* Animaciones específicas para cada tipo de icono */
+
+/* Industrias - movimiento de engranajes */
+@keyframes industry-spin {
+  0% { transform: rotate(0deg); filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0)); }
+  50% { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)); }
+  100% { transform: rotate(360deg); filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0)); }
+}
+
+.card-item:hover .icon-industrias {
+  animation: industry-spin 3s linear infinite;
+  color: #ffffff;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+}
+
+/* Transportes - movimiento de vehículo */
+@keyframes transport-move {
+  0% { transform: translateX(-3px); filter: drop-shadow(-3px 0 2px rgba(25, 118, 210, 0.3)); }
+  50% { transform: translateX(3px); filter: drop-shadow(3px 0 4px rgba(25, 118, 210, 0.5)); }
+  100% { transform: translateX(-3px); filter: drop-shadow(-3px 0 2px rgba(25, 118, 210, 0.3)); }
+}
+
+.card-item:hover .icon-transportes {
+  animation: transport-move 1s ease-in-out infinite;
+  color: #ffffff;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+}
+
+/* Agricultura - crecimiento de planta */
+@keyframes plant-grow {
+  0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(104, 159, 56, 0)); }
+  50% { transform: scale(1.3) translateY(-2px); filter: drop-shadow(0 3px 5px rgba(104, 159, 56, 0.5)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(104, 159, 56, 0)); }
+}
+
+.card-item:hover .icon-agricultura {
+  animation: plant-grow 2s ease infinite;
+  color: #ffffff;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+}
+
+/* Ciudades - pulso urbano */
+@keyframes city-pulse {
+  0% { transform: scale(1); opacity: 1; filter: drop-shadow(0 0 0 rgba(123, 31, 162, 0)); }
+  50% { transform: scale(1.2); opacity: 0.8; filter: drop-shadow(0 0 8px rgba(123, 31, 162, 0.6)); }
+  100% { transform: scale(1); opacity: 1; filter: drop-shadow(0 0 0 rgba(123, 31, 162, 0)); }
+}
+
+.card-item:hover .icon-ciudades {
+  animation: city-pulse 1.5s ease-in-out infinite;
+  color: #ffffff;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+}
+
+/* Personas - movimiento de personas */
+@keyframes people-wave {
+  0% { transform: translateY(0); filter: drop-shadow(0 0 0 rgba(211, 47, 47, 0)); }
+  25% { transform: translateY(-3px) rotate(5deg); filter: drop-shadow(2px 3px 3px rgba(211, 47, 47, 0.4)); }
+  50% { transform: translateY(0) rotate(0deg); filter: drop-shadow(0 0 0 rgba(211, 47, 47, 0)); }
+  75% { transform: translateY(-3px) rotate(-5deg); filter: drop-shadow(-2px 3px 3px rgba(211, 47, 47, 0.4)); }
+  100% { transform: translateY(0); filter: drop-shadow(0 0 0 rgba(211, 47, 47, 0)); }
+}
+
+.card-item:hover .icon-personas {
+  animation: people-wave 2s ease infinite;
+  color: #ffffff;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+}
+
+/* Energías - destello de energía */
+@keyframes energy-flash {
+  0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(245, 124, 0, 0)); text-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+  25% { filter: drop-shadow(0 0 5px rgba(245, 124, 0, 0.3)); }
+  50% { transform: scale(1.4); filter: drop-shadow(0 0 15px rgba(245, 124, 0, 0.7)); text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
+  75% { filter: drop-shadow(0 0 5px rgba(245, 124, 0, 0.3)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(245, 124, 0, 0)); text-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+.card-item:hover .icon-energias {
+  animation: energy-flash 1.5s ease infinite;
+  color: #ffffff;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+}
+
+/* Huella Hídrica - ondas de agua */
+@keyframes water-wave {
+  0% { 
+    transform: translateY(0) rotate(0deg); 
+    filter: drop-shadow(0 0 0 rgba(2, 136, 209, 0));
+  }
+  25% { 
+    transform: translateY(2px) rotate(5deg); 
+    filter: drop-shadow(2px 2px 4px rgba(2, 136, 209, 0.4));
+  }
+  50% { 
+    transform: translateY(0) rotate(0deg); 
+    filter: drop-shadow(0 3px 6px rgba(2, 136, 209, 0.6));
+  }
+  75% { 
+    transform: translateY(-2px) rotate(-5deg); 
+    filter: drop-shadow(-2px 2px 4px rgba(2, 136, 209, 0.4));
+  }
+  100% { 
+    transform: translateY(0) rotate(0deg); 
+    filter: drop-shadow(0 0 0 rgba(2, 136, 209, 0));
+  }
+}
+
+.card-item:hover .icon-huellaHidrica {
+  animation: water-wave 2s ease-in-out infinite;
+  color: #ffffff;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
 }
 
 .card-header::after {

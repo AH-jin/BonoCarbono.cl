@@ -131,18 +131,21 @@ const CarbonTables = () => {
 
 
   const renderCards = () => {
+    // Animaciones AOS aleatorias
+    const animations = ['fade-up', 'fade-down', 'fade-right', 'fade-left', 'zoom-in'];
+    
     return (
-      <div className="cards-container">
+      <div className="card-container" data-aos="fade-up" data-aos-duration="1000">
+        <div className="carbon-background-element tree-element" data-aos="fade-right" data-aos-delay="300"></div>
+        <div className="carbon-background-element molecule-element" data-aos="fade-left" data-aos-delay="500"></div>
+        <div className="carbon-background-element recycle-element" data-aos="fade-up" data-aos-delay="700"></div>
         {cardData.map((item, index) => {
-          // Diferentes animaciones para hacer más dinámico
-          const animations = ['fade-up', 'fade-down', 'fade-right', 'fade-left', 'zoom-in', 'flip-left'];
-          const randomAnim = animations[index % animations.length];
+          const randomAnim = animations[Math.floor(Math.random() * animations.length)];
           
           return (
             <div 
               key={item.id} 
               className="card-item" 
-              data-category={item.id}
               data-aos={randomAnim}
               data-aos-duration="800"
               data-aos-delay={index * 100}
@@ -157,7 +160,10 @@ const CarbonTables = () => {
               }}
             >
               <div className="card-header">
-                <FontAwesomeIcon icon={item.icon} className="card-icon" />
+                <FontAwesomeIcon 
+                  icon={item.icon} 
+                  className={`card-icon icon-${item.id}`} 
+                />
                 {item.name}
               </div>
               <div className="card-body">
