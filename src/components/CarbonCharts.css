@@ -1,29 +1,86 @@
 .carbon-charts {
   margin-top: 3rem;
-  padding: 1.5rem;
+  padding: 2rem;
   background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+}
+
+.carbon-charts:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px);
 }
 
 .charts-title {
   text-align: center;
   color: #2e7d32;
-  margin-bottom: 2rem;
-  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 0.8rem;
+}
+
+.charts-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #2e7d32, #4caf50, #8bc34a);
+  border-radius: 3px;
 }
 
 .charts-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
 }
 
 .chart-item {
   background-color: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.8rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.chart-item:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+}
+
+.chart-title {
+  text-align: center;
+  color: #2e7d32;
+  margin-bottom: 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Efecto de brillo en los gráficos */
+.chart-item::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(76, 175, 80, 0.08) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.chart-item:hover::before {
+  opacity: 1;
+  transform: scale(1);
 }
 
 @media (max-width: 992px) {

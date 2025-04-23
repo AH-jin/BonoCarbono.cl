@@ -133,17 +133,36 @@ const CarbonCharts = ({ data }) => {
   };
 
   return (
-    <div className="carbon-charts">
+    <div className="carbon-charts" data-aos="fade-up" data-aos-duration="1000">
+      <h2 className="charts-title" data-aos="fade-down" data-aos-delay="200">Gráficos de Datos</h2>
       <div className="charts-container">
-        <div className="chart-item">
+        <div 
+          className="chart-item" 
+          data-aos="fade-right" 
+          data-aos-delay="300"
+          data-aos-duration="800"
+        >
+          <h3 className="chart-title">Valores por Categoría</h3>
           <Bar data={getBarChartData()} options={barOptions} />
         </div>
         
-        <div className="chart-item">
+        <div 
+          className="chart-item" 
+          data-aos="zoom-in" 
+          data-aos-delay="500"
+          data-aos-duration="800"
+        >
+          <h3 className="chart-title">Distribución de Valores</h3>
           <Pie data={getPieChartData()} options={pieOptions} />
         </div>
         
-        <div className="chart-item">
+        <div 
+          className="chart-item" 
+          data-aos="fade-left" 
+          data-aos-delay="700"
+          data-aos-duration="800"
+        >
+          <h3 className="chart-title">Proporción por Categoría</h3>
           <Doughnut data={getPieChartData()} options={doughnutOptions} />
         </div>
       </div>
