@@ -135,11 +135,11 @@ const CarbonTables = () => {
     // Definir el orden específico para el layout 3-1-3
     const orderedCategories = [
       // Primera fila (3 tarjetas)
-      'personas', 'energias', 'huellaHidrica',
-      // Segunda fila (1 tarjeta)
-      'industrias',
+      'transportes', 'agricultura', 'ciudades',
+      // Segunda fila (1 tarjeta centrada)
+      'personas',
       // Tercera fila (3 tarjetas)
-      'transportes', 'agricultura', 'ciudades'
+      'energias', 'huellaHidrica', 'industrias'
     ];
     
     // Filtrar y ordenar los datos según el orden definido
@@ -157,42 +157,46 @@ const CarbonTables = () => {
         <div className="carbon-background-element tree-element" data-aos="fade-right" data-aos-delay="300"></div>
         <div className="carbon-background-element molecule-element" data-aos="fade-left" data-aos-delay="500"></div>
         <div className="carbon-background-element recycle-element" data-aos="fade-up" data-aos-delay="700"></div>
-        {orderedData.map((item, index) => {
-          const randomAnim = animations[Math.floor(Math.random() * animations.length)];
-          
-          return (
-            <div 
-              key={item.id} 
-              className="card-item" 
-              data-category={item.id}
-              data-aos={randomAnim}
-              data-aos-duration="800"
-              data-aos-delay={index * 100}
-              data-aos-anchor-placement="top-bottom"
-              onClick={() => {
-                // Añadir efecto al hacer clic
-                const element = document.querySelector(`[data-category="${item.id}"]`);
-                element.classList.add('card-pulse');
-                setTimeout(() => {
-                  element.classList.remove('card-pulse');
-                }, 500);
-              }}
-            >
-              <div className="card-header">
-                <FontAwesomeIcon 
-                  icon={item.icon} 
-                  className={`card-icon icon-${item.id}`} 
-                />
-                {item.name}
-              </div>
-              <div className="card-body">
-                <div className="card-value" data-aos="zoom-in" data-aos-delay={(index * 100) + 300}>
-                  {item.value}
+        <div className="carbon-background-element cloud-element" data-aos="fade-down" data-aos-delay="400"></div>
+        <div className="carbon-background-element leaf-element" data-aos="fade-up" data-aos-delay="600"></div>
+        <div className="cards-container" data-aos="fade-up" data-aos-duration="1000">
+          {orderedData.map((item, index) => {
+            const randomAnim = animations[Math.floor(Math.random() * animations.length)];
+            
+            return (
+              <div 
+                key={item.id} 
+                className="card-item" 
+                data-category={item.id}
+                data-aos={randomAnim}
+                data-aos-duration="800"
+                data-aos-delay={index * 100}
+                data-aos-anchor-placement="top-bottom"
+                onClick={() => {
+                  // Añadir efecto al hacer clic
+                  const element = document.querySelector(`[data-category="${item.id}"]`);
+                  element.classList.add('card-pulse');
+                  setTimeout(() => {
+                    element.classList.remove('card-pulse');
+                  }, 500);
+                }}
+              >
+                <div className="card-header">
+                  <FontAwesomeIcon 
+                    icon={item.icon} 
+                    className={`card-icon icon-${item.id}`} 
+                  />
+                  {item.name}
+                </div>
+                <div className="card-body">
+                  <div className="card-value" data-aos="zoom-in" data-aos-delay={(index * 100) + 300}>
+                    {item.value}
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     );
   };
