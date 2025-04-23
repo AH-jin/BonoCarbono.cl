@@ -151,6 +151,198 @@
   }
 }
 
+/* Estilos para la sección de huella de carbono */
+.huella-carbono-section {
+  padding: 3rem 0;
+  margin-top: 2rem;
+}
+
+.huella-carbono-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilos para la comparativa de huella de carbono */
+.carbon-comparison-section {
+  background-color: #e8f5e9;
+  padding: 3rem 1rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+}
+
+.carbon-comparison-section::before,
+.carbon-comparison-section::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: rgba(76, 175, 80, 0.1);
+  z-index: 0;
+}
+
+.carbon-comparison-section::before {
+  top: -100px;
+  right: -100px;
+}
+
+.carbon-comparison-section::after {
+  bottom: -100px;
+  left: -100px;
+}
+
+.comparison-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.comparison-group {
+  margin-bottom: 4rem;
+}
+
+.main-title {
+  color: #2e7d32;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.comparison-subtitle {
+  color: #757575;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.comparison-panel {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.comparison-cards {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.comparison-card {
+  flex: 1;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.comparison-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.tractor {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.dron {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* Estilos para la huella hídrica */
+.tractor.water {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.dron.water {
+  background-color: #e1f5fe;
+  color: #0288d1;
+}
+
+.carbon-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.comparison-text {
+  text-align: center;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 1.5rem;
+}
+
+.comparison-text p {
+  margin-bottom: 1rem;
+}
+
+.comparison-text strong {
+  color: #2e7d32;
+  font-weight: 700;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+  
+  .comparison-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .comparison-cards {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .comparison-card {
+    padding: 1.2rem;
+  }
+  
+  .carbon-value {
+    font-size: 2rem;
+  }
+  
+  .comparison-panel {
+    padding: 1.5rem;
+  }
+}
+
+.huella-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #555;
+  line-height: 1.6;
+}
+
+.huella-description p {
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 576px) {
   .carbon-tables-section {
     padding: 1.5rem 0;
@@ -190,6 +382,16 @@
   .carbon-table td {
     padding: 0.4rem;
     font-size: 0.8rem;
+  }
+  
+  .huella-cards-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .huella-card {
+    width: 100%;
+    max-width: 280px;
   }
   
   /* Mejora la visualización en pantallas muy pequeñas */
