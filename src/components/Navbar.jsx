@@ -15,11 +15,7 @@ const Navbar = () => {
           <span className="logo-text">BonoCarbono.cl</span>
         </div>
 
-        <div className="menu-icon" onClick={toggleMenu}>
-          <div className={`menu-icon__bar ${isMenuOpen ? 'open' : ''}`}></div>
-          <div className={`menu-icon__bar ${isMenuOpen ? 'open' : ''}`}></div>
-          <div className={`menu-icon__bar ${isMenuOpen ? 'open' : ''}`}></div>
-        </div>
+        {/* El icono de menú hamburguesa ha sido eliminado */}
 
         <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           {/* Menú vacío, se ha eliminado el botón de inicio */}

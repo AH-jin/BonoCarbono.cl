@@ -345,7 +345,7 @@ const CarbonTables = () => {
                 <div className="reduction-info">
                   <div className="reduction-badge">
                     <div className="reduction-value">-94%</div>
-                    <div className="reduction-label">REDUCCIÓN</div>
+                    <div className="reduction-label">REDUC<br/>CIÓN</div>
                   </div>
                   <div className="reduction-text">
                     <p>El uso de drones reduce <strong>17 veces</strong> las emisiones</p>
@@ -366,7 +366,7 @@ const CarbonTables = () => {
                 <div className="reduction-info">
                   <div className="reduction-badge">
                     <div className="reduction-value">-96%</div>
-                    <div className="reduction-label">REDUCCIÓN</div>
+                    <div className="reduction-label">REDUC<br/>CIÓN</div>
                   </div>
                   <div className="reduction-text">
                     <p>El uso de drones reduce <strong>22.5 veces</strong> el consumo de agua</p>
