@@ -49,24 +49,23 @@ const CarbonTables = () => {
       title: 'Bonos de Carbono en Transportes',
       headers: ['Tipo de Transporte', 'Emisiones (tCO₂e/año)', 'Potencial de Reducción (%)', 'Precio Bono (USD/tCO₂e)', 'Proyectos de Compensación'],
       rows: [
-        ['Transporte Terrestre', '9,300,000', '40%', '$22-38', '124'],
-        ['Aviación', '7,800,000', '25%', '$35-55', '67'],
-        ['Transporte Marítimo', '6,500,000', '30%', '$28-45', '52'],
-        ['Ferroviario', '2,100,000', '45%', '$20-35', '41'],
-        ['Logística Urbana', '3,400,000', '38%', '$24-40', '83'],
-        ['Transporte Público', '4,200,000', '50%', '$18-32', '95'],
+        ['Buses Interurbanos', '8,200,000', '35%', '$25-40', '56'],
+        ['Buses Urbanos', '6,500,000', '42%', '$20-35', '223'],
+        ['Buses Rurales', '3,200,000', '30%', '$18-32', '24'],
+        ['Buses Privados', '2,800,000', '38%', '$22-36', '0'],
+        ['Camiones', '9,500,000', '25%', '$30-45', '0'],
+        ['Furgones', '4,100,000', '28%', '$20-38', '0'],
+        ['Automóviles', '12,500,000', '40%', '$15-30', '0'],
+        ['Camionetas', '7,800,000', '32%', '$18-35', '0'],
+        ['Motos', '1,500,000', '45%', '$12-25', '0'],
       ]
     },
     agricultura: {
       title: 'Bonos de Carbono en Agricultura',
       headers: ['Sector Agrícola', 'Emisiones (tCO₂e/año)', 'Secuestro Potencial (tCO₂e/ha)', 'Precio Bono (USD/tCO₂e)', 'Hectáreas en Programas'],
       rows: [
-        ['Cultivos Extensivos', '5,200,000', '3.5-7.2', '$18-30', '850,000'],
-        ['Ganadería', '8,400,000', '2.1-4.8', '$20-35', '620,000'],
-        ['Arroz', '3,100,000', '2.8-5.5', '$15-28', '340,000'],
-        ['Silvicultura', '1,800,000', '8.5-15.2', '$25-45', '1,200,000'],
-        ['Horticultura', '1,400,000', '3.2-6.8', '$22-38', '280,000'],
-        ['Agricultura Regenerativa', '900,000', '10.5-18.2', '$30-50', '420,000'],
+        ['Cultivos Tradicionales', '4,800,000', '3.2-6.8', '$20-35', '12.153'],
+        ['Frutales', '3,200,000', '5.5-9.2', '$25-40', '16.820'],
       ]
     },
     ciudades: {
