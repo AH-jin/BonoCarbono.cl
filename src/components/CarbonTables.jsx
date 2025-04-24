@@ -275,7 +275,7 @@ const CarbonTables = () => {
   };
 
   return (
-    <section className="carbon-comparison-section">
+    <section className="carbon-comparison-section responsive-section">
       <div className="comparison-container">
         <div className="comparison-group highlighted-group">
           <h1 className="main-title highlighted-title">Toneladas Cuantificadas</h1>

@@ -167,14 +167,43 @@
 
 /* Estilos para la comparativa de huella de carbono */
 .carbon-comparison-section {
-  padding: 3rem 1rem;
+  padding: 1rem 0.8rem;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   background-color: transparent;
+}
+
+/* Estilos específicos para asegurar responsividad */
+.responsive-section {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px; /* Base font size */
+}
+
+.responsive-section * {
+  box-sizing: border-box;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Asegurar que las imágenes sean responsivas */
+.responsive-section img {
+  height: auto;
+  max-width: 100%;
+}
+
+/* Viewport meta tag asegura responsividad adecuada */
+/* Nota: Esto debe coincidir con la meta tag en el HTML */
+@media screen and (max-width: 100%) {
+  .responsive-section {
+    width: 100vw;
+    overflow-x: hidden;
+  }
 }
 
 .carbon-comparison-section::before,
@@ -201,28 +230,30 @@
 }
 
 .comparison-group {
-  margin-bottom: 4rem;
+  margin-bottom: 1.5rem;
 }
 
 .main-title {
   color: #2e7d32;
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
   font-weight: 700;
+  text-align: center;
 }
 
 .comparison-subtitle {
   color: #757575;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .comparison-panel {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem 1rem;
+  margin: 0 auto 1.5rem auto;
   max-width: 900px;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
@@ -230,16 +261,16 @@
 
 .comparison-cards {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: stretch;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .comparison-card {
   flex: 1;
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1rem 0.5rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -248,8 +279,8 @@
 }
 
 .comparison-card h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
   font-weight: 600;
   color: #333;
 }
@@ -499,44 +530,216 @@
 
 
 
-/* Mejoras para dispositivos móviles */
-@media (max-width: 768px) {
+/* Estilos responsivos para todos los dispositivos */
+
+/* Pantallas grandes (escritorio) */
+@media (min-width: 1200px) {
+  .carbon-comparison-section {
+    padding: 3rem 2rem;
+  }
+  
   .comparison-container {
-    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .main-title {
+    font-size: 2.5rem;
+  }
+  
+  .comparison-subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .comparison-panel {
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .comparison-cards {
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
+  .comparison-card {
+    padding: 1.5rem;
+  }
+  
+  .comparison-card h2 {
+    font-size: 1.5rem;
+  }
+  
+  .carbon-value {
+    font-size: 2rem;
+  }
+  
+  .comparison-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+}
+
+/* Pantallas medianas (tablets) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .carbon-comparison-section {
+    padding: 2rem 1.5rem;
+  }
+  
+  .comparison-container {
+    max-width: 900px;
+    margin: 0 auto;
   }
   
   .main-title {
     font-size: 2.2rem;
-    margin-bottom: 0.3rem;
   }
   
   .comparison-subtitle {
     font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+  }
+  
+  .comparison-panel {
+    padding: 1.8rem 1.5rem;
+    margin-bottom: 1.8rem;
+  }
+  
+  .comparison-cards {
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  
+  .comparison-card {
+    padding: 1.2rem 1rem;
+  }
+  
+  .comparison-card h2 {
+    font-size: 1.3rem;
+  }
+  
+  .carbon-value {
+    font-size: 1.8rem;
+  }
+  
+  .comparison-text {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+/* Pantallas pequeñas (móviles en horizontal y tablets pequeñas) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .carbon-comparison-section {
+    padding: 1.5rem 1rem;
+    align-items: flex-start;
+  }
+  
+  .comparison-container {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+  
+  .main-title {
+    font-size: 2rem;
+  }
+  
+  .comparison-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
   }
   
   .comparison-panel {
     padding: 1.5rem 1rem;
-    margin: 0 auto;
+    margin-bottom: 1.5rem;
   }
   
   .comparison-cards {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 1rem;
   }
   
   .comparison-card {
+    padding: 1rem 0.8rem;
+  }
+  
+  .comparison-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .carbon-value {
+    font-size: 1.5rem;
+  }
+  
+  .comparison-text {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+  }
+}
+
+/* Móviles en vertical */
+@media (max-width: 575px) {
+  .carbon-comparison-section {
+    padding: 1rem 0.8rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  .comparison-container {
+    padding: 0;
     width: 100%;
-    max-width: 100%;
+  }
+  
+  .main-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+  }
+  
+  .comparison-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .comparison-panel {
+    padding: 1.2rem 0.8rem;
+    margin-bottom: 1.2rem;
+    border-radius: 12px;
+  }
+  
+  .comparison-cards {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.8rem;
+  }
+  
+  .comparison-card {
+    padding: 0.8rem 0.5rem;
+    width: 48%;
+  }
+  
+  .comparison-card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .carbon-value {
+    font-size: 1.3rem;
   }
   
   .comparison-text {
     font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 0 0.3rem;
+  }
+  
+  .comparison-text p {
+    margin-bottom: 0.5rem;
   }
   
   .charts-row {
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
   }
   
   .chart-column {
@@ -545,11 +748,7 @@
   }
   
   .compact-chart-container {
-    height: 300px;
-  }
-  
-  .chart-subtitle {
-    font-size: 1.1rem;
+    height: 250px;
   }
   
   .reduction-info {
@@ -560,12 +759,12 @@
   
   .reduction-badge {
     margin-bottom: 0.8rem;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
   }
   
   .reduction-value {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
   
   .reduction-label {
@@ -574,59 +773,89 @@
   
   .reduction-text {
     padding-left: 0;
-    font-size: 0.9rem;
-  }
-  
-  .comparison-arrow {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .arrow {
-    width: 50%;
-    margin: 0.5rem 0;
-  }
-  
-  .arrow-label {
-    font-size: 0.7rem;
-    margin: 0.3rem;
+    font-size: 0.85rem;
   }
   
   .line-chart-section {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
   
   .line-chart-title {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
   
   .line-chart-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
   
   .line-chart-description {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
   
   .line-chart-wrapper-container {
-    height: 350px;
-    padding: 1rem;
+    height: 300px;
+    padding: 0.8rem;
   }
   
   .summary-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   
   .summary-item {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
   
   .metric-item {
     min-width: 100%;
   }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 375px) {
+  .carbon-comparison-section {
+    padding: 0.8rem 0.5rem;
+  }
+  
+  .main-title {
+    font-size: 1.6rem;
+    line-height: 1.1;
+  }
+  
+  .highlighted-title {
+    font-size: 1.6rem;
+    line-height: 1.1;
+    margin-bottom: 0.3rem;
+  }
+  
+  .comparison-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .comparison-panel {
+    padding: 1rem 0.6rem;
+  }
+  
+  .comparison-card {
+    padding: 0.7rem 0.4rem;
+  }
+  
+  .comparison-card h2 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
   
   .carbon-value {
-    font-size: 2rem;
+    font-size: 1.2rem;
+  }
+  
+  .comparison-text {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+  
+  .line-chart-wrapper-container {
+    height: 250px;
+    padding: 0.5rem;
   }
 }
 
@@ -697,7 +926,7 @@
 }
 
 .carbon-value {
-  font-size: 2.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   margin: 0;
   line-height: 1.2;
@@ -706,12 +935,14 @@
 .comparison-text {
   text-align: center;
   color: #555;
-  line-height: 1.6;
-  margin-top: 1.5rem;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  padding: 0 0.5rem;
 }
 
 .comparison-text p {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .comparison-text strong {
@@ -1090,11 +1321,11 @@
 /* Estilos para destacar el título de Toneladas Cuantificadas */
 .highlighted-group {
   background-color: rgba(46, 125, 50, 0.1);
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem;
   border-radius: 16px;
-  margin-bottom: 3rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  border: 2px solid #2e7d32;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #2e7d32;
   position: relative;
   overflow: hidden;
   width: 100%;
