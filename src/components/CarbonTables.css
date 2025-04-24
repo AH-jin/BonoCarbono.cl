@@ -1339,6 +1339,17 @@
     padding: 0.3rem;
     font-size: 0.75rem;
   }
+  
+  .tabs {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  
+  .tab-button {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.2rem;
+  }
 }
 
 /* Estilos para destacar el título de Toneladas Cuantificadas */
