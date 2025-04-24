@@ -261,14 +261,17 @@
 
 .comparison-cards {
   display: flex;
+  flex-direction: row !important; /* Forzar dirección horizontal */
+  flex-wrap: nowrap !important; /* Evitar que las tarjetas se envuelvan */
   justify-content: space-between;
   align-items: stretch;
   gap: 1rem;
   margin-bottom: 1rem;
+  width: 100%;
 }
 
 .comparison-card {
-  flex: 1;
+  flex: 1 0 45%; /* Flex-grow: 1, flex-shrink: 0, flex-basis: 45% */
   border-radius: 12px;
   padding: 1rem 0.5rem;
   text-align: center;
@@ -276,6 +279,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-width: 100px; /* Ancho mínimo garantizado */
+  max-width: 49%; /* Ancho máximo para evitar desbordamiento */
 }
 
 .comparison-card h2 {
@@ -816,6 +821,14 @@
     padding: 0.8rem 0.5rem;
   }
   
+  /* Ajustes específicos para mantener el formato de las tarjetas */
+  .comparison-cards {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  
   .main-title {
     font-size: 1.6rem;
     line-height: 1.1;
@@ -978,8 +991,9 @@
   }
   
   .comparison-cards {
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 0.8rem;
   }
   
   .comparison-card {
