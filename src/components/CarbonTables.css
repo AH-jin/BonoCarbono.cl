@@ -810,3 +810,55 @@
     font-size: 0.75rem;
   }
 }
+
+/* Estilos para destacar el título de Toneladas Cuantificadas */
+.highlighted-group {
+  background-color: rgba(46, 125, 50, 0.1);
+  padding: 2rem;
+  border-radius: 16px;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 2px solid #2e7d32;
+  position: relative;
+  overflow: hidden;
+}
+
+.highlighted-group::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(46, 125, 50, 0.2);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.highlighted-title {
+  font-size: 3.5rem;
+  color: #2e7d32;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+}
+
+.highlighted-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 3px;
+  background-color: #2e7d32;
+  border-radius: 2px;
+}
+
+.highlighted-subtitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-top: 1rem;
+}

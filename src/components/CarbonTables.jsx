@@ -277,6 +277,10 @@ const CarbonTables = () => {
   return (
     <section className="carbon-comparison-section">
       <div className="comparison-container">
+        <div className="comparison-group highlighted-group">
+          <h1 className="main-title highlighted-title">Toneladas Cuantificadas</h1>
+          <p className="comparison-subtitle highlighted-subtitle">513.417 kg CO²</p>
+        </div>
         <div className="comparison-group">
           <h1 className="main-title">Huella de Carbono</h1>
           <p className="comparison-subtitle">Comparativa de tecnologías agrícolas</p>
