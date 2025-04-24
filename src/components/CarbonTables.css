@@ -501,13 +501,55 @@
 
 /* Mejoras para dispositivos móviles */
 @media (max-width: 768px) {
+  .comparison-container {
+    padding: 0 1rem;
+  }
+  
+  .main-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .comparison-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .comparison-panel {
+    padding: 1.5rem 1rem;
+    margin: 0 auto;
+  }
+  
+  .comparison-cards {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .comparison-card {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .comparison-text {
+    font-size: 0.9rem;
+  }
+  
+  .charts-row {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .chart-column {
+    min-width: 100%;
+    padding: 0.8rem;
+  }
+  
   .compact-chart-container {
     height: 300px;
   }
   
-  .chart-column {
-    min-width: 280px;
-    padding: 0.8rem;
+  .chart-subtitle {
+    font-size: 1.1rem;
   }
   
   .reduction-info {
@@ -518,10 +560,73 @@
   
   .reduction-badge {
     margin-bottom: 0.8rem;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .reduction-value {
+    font-size: 1.6rem;
+  }
+  
+  .reduction-label {
+    font-size: 0.7rem;
   }
   
   .reduction-text {
     padding-left: 0;
+    font-size: 0.9rem;
+  }
+  
+  .comparison-arrow {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .arrow {
+    width: 50%;
+    margin: 0.5rem 0;
+  }
+  
+  .arrow-label {
+    font-size: 0.7rem;
+    margin: 0.3rem;
+  }
+  
+  .line-chart-section {
+    margin-top: 2rem;
+  }
+  
+  .line-chart-title {
+    font-size: 1.6rem;
+  }
+  
+  .line-chart-subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .line-chart-description {
+    font-size: 0.9rem;
+  }
+  
+  .line-chart-wrapper-container {
+    height: 350px;
+    padding: 1rem;
+  }
+  
+  .summary-title {
+    font-size: 1.5rem;
+  }
+  
+  .summary-item {
+    font-size: 0.95rem;
+  }
+  
+  .metric-item {
+    min-width: 100%;
+  }
+  
+  .carbon-value {
+    font-size: 2rem;
   }
 }
 
@@ -793,8 +898,179 @@
   }
 }
 
+/* Para dispositivos pequeños */
+@media (max-width: 576px) {
+  .carbon-comparison-section {
+    padding: 2rem 0.5rem;
+  }
+  
+  .main-title {
+    font-size: 1.8rem;
+  }
+  
+  .comparison-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .comparison-panel {
+    padding: 1rem 0.8rem;
+    border-radius: 12px;
+  }
+  
+  .comparison-card h2 {
+    font-size: 1.4rem;
+  }
+  
+  .carbon-value {
+    font-size: 1.6rem;
+  }
+  
+  .comparison-text p {
+    font-size: 0.85rem;
+  }
+  
+  .chart-subtitle {
+    font-size: 1rem;
+  }
+  
+  .reduction-badge {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .reduction-value {
+    font-size: 1.4rem;
+  }
+  
+  .line-chart-title {
+    font-size: 1.4rem;
+  }
+  
+  .line-chart-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .line-chart-wrapper-container {
+    height: 300px;
+    padding: 0.8rem;
+  }
+  
+  .summary-title {
+    font-size: 1.3rem;
+  }
+  
+  .summary-item {
+    font-size: 0.85rem;
+    padding-left: 0.7rem;
+  }
+  
+  .metric-value {
+    font-size: 1.5rem;
+  }
+}
+
 /* Para dispositivos muy pequeños */
 @media (max-width: 375px) {
+  .carbon-comparison-section {
+    padding: 1.5rem 0.3rem;
+  }
+  
+  .main-title {
+    font-size: 1.4rem;
+    line-height: 1.1;
+    padding: 0 2px;
+  }
+  
+  .highlighted-title {
+    font-size: 1.6rem;
+    line-height: 1.1;
+    margin-bottom: 0.3rem;
+    padding: 0 2px;
+  }
+  
+  .comparison-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .comparison-panel {
+    padding: 0.8rem 0.5rem;
+  }
+  
+  .comparison-card {
+    padding: 1rem;
+  }
+  
+  .comparison-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .carbon-value {
+    font-size: 1.4rem;
+  }
+  
+  .comparison-text p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  
+  .chart-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .reduction-badge {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .reduction-value {
+    font-size: 1.2rem;
+  }
+  
+  .reduction-label {
+    font-size: 0.6rem;
+  }
+  
+  .line-chart-title {
+    font-size: 1.2rem;
+  }
+  
+  .line-chart-subtitle {
+    font-size: 1rem;
+  }
+  
+  .line-chart-description {
+    font-size: 0.8rem;
+  }
+  
+  .line-chart-wrapper-container {
+    height: 250px;
+    padding: 0.5rem;
+  }
+  
+  .summary-title {
+    font-size: 1.2rem;
+  }
+  
+  .summary-item {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .metric-item {
+    padding: 1rem;
+  }
+  
+  .metric-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+  }
+  
+  .metric-value {
+    font-size: 1.3rem;
+  }
+  
   .carbon-table-container {
     padding: 0.8rem;
   }
@@ -814,13 +1090,16 @@
 /* Estilos para destacar el título de Toneladas Cuantificadas */
 .highlighted-group {
   background-color: rgba(46, 125, 50, 0.1);
-  padding: 2rem;
+  padding: 2rem 1rem;
   border-radius: 16px;
   margin-bottom: 3rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   border: 2px solid #2e7d32;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .highlighted-group::before {
@@ -841,7 +1120,17 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   letter-spacing: 1px;
   position: relative;
-  display: inline-block;
+  display: block;
+  word-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+  width: 100%;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  text-align: center;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
 .highlighted-title::after {
@@ -861,4 +1150,70 @@
   font-weight: 700;
   color: #333;
   margin-top: 1rem;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+/* Media queries para responsividad del título destacado */
+@media (max-width: 768px) {
+  .highlighted-group {
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .highlighted-title {
+    font-size: 2.5rem;
+  }
+  
+  .highlighted-subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .highlighted-group {
+    padding: 1.2rem 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .highlighted-title {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    padding: 0 5px;
+  }
+  
+  .highlighted-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  /* Ajustes específicos para el título principal */
+  .main-title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 0 5px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 375px) {
+  .highlighted-group {
+    padding: 1rem 0.5rem;
+  }
+  
+  .highlighted-title {
+    font-size: 1.8rem;
+  }
+  
+  .highlighted-subtitle {
+    font-size: 1rem;
+  }
 }
