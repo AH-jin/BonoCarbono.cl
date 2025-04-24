@@ -28,11 +28,22 @@ const CarbonTables = () => {
   const carbonReduction = ((18.5 - 1.07) / 18.5 * 100).toFixed(0);
   const waterReduction = ((900 - 40) / 900 * 100).toFixed(0);
   
-  // Estado para las tablas de datos
-  const [activeTab, setActiveTab] = useState('industrias');
+  // Estado para manejar las pestañas
+  const [activeTab, setActiveTab] = useState('mercado');
 
   // Datos para las tablas por sectores
   const tablesData = {
+    mercado: {
+      title: 'Datos del Mercado de Bonos de Carbono',
+      headers: ['Categoría', 'Valor 2023-2024', 'Proyección 2025-2028', 'Proyección 2034-2050', 'CAGR'],
+      rows: [
+        ['Mercado Total', 'USD 669.370 millones', 'USD 933.230 millones (2025)', 'USD 16,38 billones (2034)', '37,68%'],
+        ['Mercado Voluntario', 'USD 1.700 millones', 'N/A', 'USD 15.700 millones (2034)', '25%'],
+        ['Ingresos por Fijación de Precios', 'USD 104.000 millones', 'N/A', 'N/A', 'N/A'],
+        ['Mercado Global', 'N/A', 'USD 2,68 billones (2028)', 'USD 22 billones (2050)', '18,23%'],
+        ['Cobertura de Emisiones Globales', '24%', 'N/A', 'N/A', 'N/A'],
+      ]
+    },
     industrias: {
       title: 'Bonos de Carbono en Industrias',
       headers: ['Sector Industrial', 'Emisiones (tCO₂e/año)', 'Potencial de Reducción (%)', 'Reducción CO₂ (tCO₂e/año)'],
@@ -556,48 +567,54 @@ const CarbonTables = () => {
           <p className="comparison-subtitle">Información detallada por sectores y categorías</p>
           
           <div className="tabs">
-            <button 
-              className={`tab-button ${activeTab === 'industrias' ? 'active' : ''}`}
-              onClick={() => handleTabChange('industrias')}
-            >
-              Industrias
-            </button>
-            <button 
-              className={`tab-button ${activeTab === 'transportes' ? 'active' : ''}`}
-              onClick={() => handleTabChange('transportes')}
-            >
-              Transportes
-            </button>
-            <button 
-              className={`tab-button ${activeTab === 'agricultura' ? 'active' : ''}`}
-              onClick={() => handleTabChange('agricultura')}
-            >
-              Agricultura
-            </button>
-            <button 
-              className={`tab-button ${activeTab === 'ciudades' ? 'active' : ''}`}
-              onClick={() => handleTabChange('ciudades')}
-            >
-              Ciudades
-            </button>
-            <button 
-              className={`tab-button ${activeTab === 'personas' ? 'active' : ''}`}
-              onClick={() => handleTabChange('personas')}
-            >
-              Personas
-            </button>
-            <button 
-              className={`tab-button ${activeTab === 'energias' ? 'active' : ''}`}
-              onClick={() => handleTabChange('energias')}
-            >
-              Energías
-            </button>
-            <button 
-              className={`tab-button ${activeTab === 'huellaHidrica' ? 'active' : ''}`}
-              onClick={() => handleTabChange('huellaHidrica')}
-            >
-              Huella Hídrica
-            </button>
+          <button 
+            className={`tab-button ${activeTab === 'mercado' ? 'active' : ''}`}
+            onClick={() => handleTabChange('mercado')}
+          >
+            Mercado
+          </button>
+          <button 
+            className={`tab-button ${activeTab === 'industrias' ? 'active' : ''}`}
+            onClick={() => handleTabChange('industrias')}
+          >
+            Industrias
+          </button>
+          <button 
+            className={`tab-button ${activeTab === 'transportes' ? 'active' : ''}`}
+            onClick={() => handleTabChange('transportes')}
+          >
+            Transportes
+          </button>
+          <button 
+            className={`tab-button ${activeTab === 'agricultura' ? 'active' : ''}`}
+            onClick={() => handleTabChange('agricultura')}
+          >
+            Agricultura
+          </button>
+          <button 
+            className={`tab-button ${activeTab === 'ciudades' ? 'active' : ''}`}
+            onClick={() => handleTabChange('ciudades')}
+          >
+            Ciudades
+          </button>
+          <button 
+            className={`tab-button ${activeTab === 'personas' ? 'active' : ''}`}
+            onClick={() => handleTabChange('personas')}
+          >
+            Personas
+          </button>
+          <button 
+            className={`tab-button ${activeTab === 'energias' ? 'active' : ''}`}
+            onClick={() => handleTabChange('energias')}
+          >
+            Energías
+          </button>
+          <button 
+            className={`tab-button ${activeTab === 'huellaHidrica' ? 'active' : ''}`}
+            onClick={() => handleTabChange('huellaHidrica')}
+          >
+            Huella Hídrica
+          </button>
           </div>
           
           {renderTable(tablesData[activeTab])}
